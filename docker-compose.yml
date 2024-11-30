@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: euphoria
+      POSTGRES_DB: niyat
     ports:
       - '5435:5432'
     volumes:
