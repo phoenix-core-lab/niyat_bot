@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  backend_service:
+    build:
+      context: .
+    image: phoenix_bot_image
+    container_name: phoenix_bot_container
+    env_file:
+      - .env
+
+
