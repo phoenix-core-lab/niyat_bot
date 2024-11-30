@@ -20,3 +20,6 @@ services:
     container_name: phoenix_bot_container
     env_file:
       - .env
+
+volumes:
+  pgdata: # Объявляем том здесь
