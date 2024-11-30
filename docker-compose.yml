@@ -1,16 +1,15 @@
-
 services:
-    db:
-        image: postgres:13
-        container_name: euphoria-db
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: secret
-          POSTGRES_DB: euphoria
-        ports:
-          - '5435:5432'
-        volumes:
-          - pgdata:/var/lib/postgresql/data
+  db:
+    image: postgres:13
+    container_name: euphoria-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: euphoria
+    ports:
+      - '5435:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   backend_service:
     depends_on:
@@ -21,5 +20,3 @@ services:
     container_name: phoenix_bot_container
     env_file:
       - .env
-
-
