@@ -6,7 +6,7 @@ from sqlalchemy.orm import DeclarativeBase, declared_attr
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import roles
 
-engine = create_engine("postgresql+psycopg2://postgres:secret@db:5435/niyat", echo=True)
+engine = create_engine("postgresql+psycopg2://postgres:secret@localhost:5435/niyat", echo=True)
 
 
 class AbstractClass:
