@@ -158,6 +158,6 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
+    create_table()
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     asyncio.run(main())
-    create_table()
