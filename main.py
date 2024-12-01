@@ -19,7 +19,7 @@ TOKEN = bot_token
 dp = Dispatcher()
 
 
-@dp.message(F.chat.id == group_id_1)
+@dp.message(F.chat.id.in_([group_id_1, group_id_2]))
 async def kjhbgv(message: Message, bot: Bot):
     q = await Question.filter(Question.question == message.reply_to_message.text.split('\n\n')[-1])
     q = [i for i in q][0]
@@ -32,18 +32,6 @@ async def kjhbgv(message: Message, bot: Bot):
                                 chat_id=chat_id,
                                 message_id=message.reply_to_message.message_id, reply_markup=ikb.as_markup())
     
-@dp.message(F.chat.id == group_id_2)
-async def kjhbgv(message: Message, bot: Bot):
-    q = await Question.filter(Question.question == message.reply_to_message.text.split('\n\n')[-1])
-    q = [i for i in q][0]
-    await Question.delete(q[0])
-    chat_id = message.chat.id
-    await bot.send_message(chat_id=q[-1], text=message.text)
-    ikb = InlineKeyboardBuilder().add(
-        InlineKeyboardButton(text=f"Profilga o'tish", url=f"tg://user?id={q[-1]}"))
-    await bot.edit_message_text(text=f'<tg-spoiler>{message.reply_to_message.text}</tg-spoiler>',
-                                chat_id=chat_id,
-                                message_id=message.reply_to_message.message_id, reply_markup=ikb.as_markup())
 
 # with engine.connect() as conn:
 #     query = Select(Book.name, Book.price, Book.id, Basket.count).join(Book).filter(Book.id == Basket.book_id)
